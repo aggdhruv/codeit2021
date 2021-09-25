@@ -8,6 +8,7 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)\
 
 def asteroid_calc(text):
+    print(len(text))
     max_score = 0
     origin = 0
     for index,i in enumerate(text):
@@ -60,4 +61,4 @@ def evaluateAsteroid():
         score, origin = asteroid_calc(i)
         a_result = dict({'input':i,'score':score,'origin':origin})
         result.append(a_result)
-    return jsonify(result)
+    return json.dumps(result)
