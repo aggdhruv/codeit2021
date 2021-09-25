@@ -15,7 +15,6 @@ def evaluateDecoder():
     logging.info("data sent for evaluation {}".format(data))
     pv = data['possible_values']
     ns = data['num_slots']
-    pv = pv+pv
 
     avs = list(itertools.permutations(pv, ns))
     # avs = list(itertools.product(pv, repeat=ns))
