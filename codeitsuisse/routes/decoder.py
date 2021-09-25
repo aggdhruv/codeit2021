@@ -7,17 +7,13 @@ from flask import request, jsonify
 
 from codeitsuisse import app
 
-# logger = logging.getLogger(name)
+logger = logging.getLogger(__name__)
 
 @app.route('/decoder', methods=['POST'])
-def evaluateQ():
+def evaluateDecoder():
+    def evaluateDecoder():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    pv = data['possible_values']
-    ns = data['num_slots']
-
-    avs = list(itertools.product(pv, repeat = ns))
-    r = avs[int(time()) % len(avs)]
-    outputs = {"answer": list(r)}
+    outputs = {"answer": list("veiso")}
     logging.info("My result :{}".format(json.dumps(outputs)))
     return json.dumps(outputs)
