@@ -34,6 +34,8 @@ def asteroid_calc(text):
                         left_count += 1
                     else:
                         break
+                if(left_count == 0 or right_count ==0):
+                    break
                 sum = count+left_count+right_count
                 if sum<=6:
                     score += sum
@@ -41,8 +43,6 @@ def asteroid_calc(text):
                     score += sum*1.5
                 else:
                     score += sum*2
-                if(left_count == 0 or right_count ==0):
-                    break
                 count = 1
                 cur_left_index = cur_left_index - left_count
                 cur_right_index = cur_right_index + right_count + 1
