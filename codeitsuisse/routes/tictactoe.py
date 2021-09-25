@@ -215,7 +215,7 @@ def start(battleId):
                 if data['player'] == player:
                     continue
                 opp_pos = data['position']
-                i,j = checkmap[opp_pos]
+                i,j = checkMap[opp_pos]
                 board[i][j] = opponent
 
                 bestMove = findBestMove(board)
