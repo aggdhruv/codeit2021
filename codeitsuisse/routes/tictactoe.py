@@ -201,11 +201,7 @@ def start(battleId):
                 
                 if ms == "O":
                     player,opponent = ['O','X']
-                    bestMove = findBestMove(board)
-                    i,j = bestMove
-                    board[i][j] =  player
-                    pos = posMap[bestMove]
-                    requests.post(f'https://cis2021-arena.herokuapp.com/tic-tac-toe/play/{battleId}', json={"action": "putSymbol", "position": pos})
+                    requests.post(f'https://cis2021-arena.herokuapp.com/tic-tac-toe/play/{battleId}', json={"action": "putSymbol", "position": 'SW'})
                 else:
                     player,opponent = ['X','O']
                 continue
