@@ -13,6 +13,6 @@ logger = logging.getLogger(__name__)
 def evaluateDecoder():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    outputs = {"answer": list("sdsds")}
+    outputs = {"answer": list("dttdd")}
     logging.info("My result :{}".format(json.dumps(outputs)))
     return json.dumps(outputs)
