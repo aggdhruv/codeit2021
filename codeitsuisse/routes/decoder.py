@@ -13,6 +13,13 @@ logger = logging.getLogger(__name__)
 def evaluateDecoder():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    outputs = {"answer": list("tioor")}
+    pv = data['possible_values']
+    ns = data['num_slots']
+    pv = pv+pv
+
+    avs = list(itertools.permutations(pv, ns))
+    # avs = list(itertools.product(pv, repeat=ns))
+    r = avs[int(time()) % len(avs)]
+    outputs = {"answer": list(r)}
     logging.info("My result :{}".format(json.dumps(outputs)))
     return json.dumps(outputs)
