@@ -7,7 +7,7 @@ from flask import request, jsonify
 
 from codeitsuisse import app
 
-logger = logging.getLogger(name)
+# logger = logging.getLogger(name)
 
 @app.route('/decoder', methods=['POST'])
 def evaluateQ():
