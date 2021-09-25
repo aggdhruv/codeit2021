@@ -11,7 +11,6 @@ logger = logging.getLogger(__name__)
 
 @app.route('/decoder', methods=['POST'])
 def evaluateDecoder():
-    def evaluateDecoder():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     outputs = {"answer": list("veiso")}
