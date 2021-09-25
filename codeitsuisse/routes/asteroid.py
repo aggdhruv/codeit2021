@@ -8,29 +8,29 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)\
 
 def asteroid_calc(text):
-    print(len(text))
     max_score = 0
     origin = 0
     for index,i in enumerate(text):
         score = 0
         count = 1
-        cur_left_index = index -1
+        cur_left_index = index
         cur_right_index = index
+        main_index = index
         if(index == 0 or index == len(text)-1):
             score = 1
         else:
-            while(cur_right_index!=len(text)-1 and cur_left_index!=0):
+            while(cur_right_index<len(text)-1 and cur_left_index!=0):
                 j = 0
                 k = 0
                 left_count = 0
                 right_count = 0
                 for j in range(len(text[cur_right_index+1::])):
-                    if text[j+cur_right_index+1]==text[cur_right_index]:
+                    if text[j+cur_right_index+1]==text[main_index]:
                         right_count += 1
                     else:
                         break
-                for k in range(len(text[cur_left_index::-1])):
-                    if text[cur_left_index-k]==text[cur_left_index]:
+                for k in range(len(text[cur_left_index-1::-1])):
+                    if text[cur_left_index-k-1]==text[main_index]:
                         left_count += 1
                     else:
                         break
@@ -44,8 +44,9 @@ def asteroid_calc(text):
                 if(left_count == 0 or right_count ==0):
                     break
                 count = 1
-                cur_left_index = cur_left_index-k
-                cur_right_index = j+cur_right_index+1
+                cur_left_index = cur_left_index - left_count
+                cur_right_index = cur_right_index + right_count + 1
+                main_index = cur_right_index
         if(score>= max_score):
             max_score = score
             origin = index
