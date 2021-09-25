@@ -150,28 +150,7 @@ def minimax(board, depth, isMax) :
                     # Undo the move
                     board[i][j] = '_'
         return best
-    
-        # If this minimizer's move
-        else :
-            best = 1000
-    
-            # Traverse all cells
-            for i in range(3) :        
-                for j in range(3) :
-                
-                    # Check if cell is empty
-                    if (board[i][j] == '_') :
-                    
-                        # Make the move
-                        board[i][j] = opponent
-    
-                        # Call minimax recursively and choose
-                        # the minimum value
-                        best = min(best, minimax(board, depth + 1, not isMax))
-    
-                        # Undo the move
-                        board[i][j] = '_'
-            return best
+
 
 def findBestMove(board) :
     bestVal = -1000
