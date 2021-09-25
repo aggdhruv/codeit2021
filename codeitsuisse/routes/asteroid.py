@@ -8,8 +8,6 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)\
 
 def asteroid_calc(text):
-    print(text)
-    print(len(text))
     max_score = 0
     origin = 0
     for index,i in enumerate(text):
@@ -25,22 +23,16 @@ def asteroid_calc(text):
                 k = 0
                 left_count = 0
                 right_count = 0
-                print('Right ' + text[cur_right_index+1::])
                 for j in range(len(text[cur_right_index+1::])):
                     if text[j+cur_right_index+1]==text[cur_right_index]:
-                        print(text[j+cur_right_index+1], end=' ')
                         right_count += 1
                     else:
                         break
-                print()
-                print('Left ' + text[cur_left_index::-1])
                 for k in range(len(text[cur_left_index::-1])):
                     if text[cur_left_index-k]==text[cur_left_index]:
-                        print(text[cur_left_index-k], end=' ')
                         left_count += 1
                     else:
                         break
-                print()
                 sum = count+left_count+right_count
                 if sum<=6:
                     score += sum
@@ -48,7 +40,6 @@ def asteroid_calc(text):
                     score += sum*1.5
                 else:
                     score += sum*2
-                print(score)
                 if(left_count == 0 or right_count ==0):
                     break
                 count = 1
@@ -57,14 +48,6 @@ def asteroid_calc(text):
         if(score>= max_score):
             max_score = score
             origin = index
-        # print()
-        print('Index: ' + str(index), end=" ")
-        print('Score: '+ str(score))
-        print()
-        # print()
-    print()
-    print('Origin: ' + str(origin), end=' ')
-    print('Max Score: ' + str(max_score))
     return max_score,origin
         
 
