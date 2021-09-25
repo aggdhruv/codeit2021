@@ -13,9 +13,8 @@ logger = logging.getLogger(__name__)
 def evaluateDecoder():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    pv = data['possible_values']
+    pv = ['d','s']
     ns = data['num_slots']
-    pv = pv+pv
 
     avs = list(itertools.permutations(pv, ns))
     # avs = list(itertools.product(pv, repeat=ns))
