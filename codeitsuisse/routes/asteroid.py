@@ -73,7 +73,7 @@ def evaluateAsteroid():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     result=[]
-    for i in data:
+    for i in data["test_cases"]:
         score, origin = asteroid_calc(i)
         a_result = dict({'input':i,'score':score,'origin':origin})
         result.append(a_result)
